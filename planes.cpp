@@ -48,13 +48,13 @@ public:
         vizS.addCoordinateSystem(0.1, "coordinate");
         vizS.setBackgroundColor(0.0, 0.0, 0.5);
         vizS.addPointCloud<pcl::PointNormal>(source, "source");
-        //vizS.addPlane(planes[0], "planes0");
-        //vizS.addPlane(planes[1], "planes1");
-        //vizS.addLine(lines[0], "line");
+        vizS.addPlane(_planes[0], "planes0");
+        //vizS.addPlane(_planes[1], "planes1");
+        vizS.addLine(_lines[0], "line");
 
-        //vizS.addLine(lines[1], "line_plane_a");
-        //vizS.addLine(lines[2], "line_plane_b");
-        //vizS.addLine(lines[3], "line_diagonal");
+        vizS.addLine(_lines[1], "line_plane_a");
+        vizS.addLine(_lines[2], "line_plane_b");
+        vizS.addLine(_lines[3], "line_diagonal");
 
         vizS.addSphere(_centerCylinder, 0.01, "center_cylinder");
         //vizS.addSphere(newPoints[2], 0.01, 1.0f, 0.0f, 0.0f, "line_point");
@@ -165,15 +165,20 @@ private:
     void buildLines(std::vector<pcl::ModelCoefficients> &planes, std::vector<pcl::ModelCoefficients> &lines)
     {
         Eigen::Vector4f plane_a(planes[0].values.data());
-        //std::cout << "plane A: " << plane_a.x() << ", " << plane_a.y() << ", " << plane_a.z() << ", " << plane_a.w() << std::endl;
         Eigen::Vector4f plane_b(planes[1].values.data());
-        //std::cout << "plane B: " << plane_b.x() << ", " << plane_b.y() << ", " << plane_b.z() << ", " << plane_b.w() << std::endl;
+
+        if (plane_a.w() > 0)
+            plane_a = -plane_a;
+
+        if (plane_b.w() > 0)
+            plane_b = -plane_b;
 
         float dot_product = acos(plane_a.head<3>().dot(plane_b.head<3>())); // can be used to verify planes estimations
-        //std::cout << "dot product: " << dot_product << std::endl;
+        if (dot_product > 1.2 || dot_product < 1.0)
+            pcl::console::print_highlight("angle between planes is not consistent!");
 
         Eigen::VectorXf line;
-        pcl::planeWithPlaneIntersection(plane_a, plane_b, line, 0.1);
+        pcl::planeWithPlaneIntersection(plane_a, plane_b, line);
 
         pcl::ModelCoefficients line_model; // 1
         std::vector<float> values(&line[0], line.data() + line.cols() * line.rows());
@@ -190,14 +195,14 @@ private:
         // LINE PLANE B
         pcl::ModelCoefficients line_b; // 3
         std::vector<float> values_b = values;
-        values_b[3] = -plane_b.x();
-        values_b[4] = -plane_b.y();
-        values_b[5] = -plane_b.z();
+        values_b[3] = plane_b.x();
+        values_b[4] = plane_b.y();
+        values_b[5] = plane_b.z();
         line_b.values = values_b;
 
         // VECTOR/LINE MIDDLE
-        Eigen::Vector4f btw((plane_a - plane_b).normalized()); // minus because we need to reverse the vector. Need to generalize!!!! <<<----
-        pcl::ModelCoefficients line_btw;                       // 4
+        Eigen::Vector4f btw((plane_a + plane_b).normalized());
+        pcl::ModelCoefficients line_btw; // 4
         std::vector<float> values_btw = values;
         values_btw[3] = btw.x();
         values_btw[4] = btw.y();
@@ -422,7 +427,7 @@ int main(int argc, char **argv)
                                       axisDirection.x(), axisDirection.y(), axisDirection.z());
         pcl::console::print_highlight("big cylinder radius %f, small cylinder radius %f\n", bigRadius, smallRadius);
     }
-    //bm.visualizeBasketModel(source);
+    bm.visualizeBasketModel(source);
 
     return (0);
 }
