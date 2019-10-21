@@ -133,11 +133,16 @@ public:
         }
     }
 };
-
 class BasketModel
 {
 
 public:
+    BasketModel()
+    {
+        _bigRadius = 0.2;
+        _smallRadius = 0.02;
+    }
+
     void buildBasketModel(pcl::PointCloud<pcl::PointNormal>::Ptr &source)
     {
         pcl::PointCloud<pcl::PointNormal>::Ptr cloud_plane(new pcl::PointCloud<pcl::PointNormal>);
@@ -149,12 +154,10 @@ public:
 
         _pointsMaxMin = getMiddlePoint(source, _lines[0]);
 
-        _bigRadius = 0.2;
         buildCylinder(_lines, _cylinder, _centerCylinder, _bigRadius);
         _newPoints = calculateNewPoints(_cylinder, _centerCylinder, _bigRadius, _lines[0]);
 
         _newPoints.push_back(_pointsMaxMin[2]);
-        _smallRadius = 0.02;
         _PointsAxes = findPointsOnAxes(_newPoints, _centerCylinder, _smallRadius);
 
         computeTransformation();
@@ -212,35 +215,13 @@ public:
         vizS.spin();
     }
 
-    Eigen::Vector3f getBigCylinderCenter() { return _centerCylinder.getVector3fMap(); }
-
-    std::vector<Eigen::Vector3f> getSmallCylindersCenter()
-    {
-        if (_PointsAxes.size() != 3)
-            PCL_ERROR("wrong points vector size");
-
-        std::vector<Eigen::Vector3f> vec;
-
-        vec.push_back(_PointsAxes[0].getVector3fMap());
-        vec.push_back(_PointsAxes[1].getVector3fMap());
-        vec.push_back(_PointsAxes[2].getVector3fMap());
-
-        return vec;
-    }
-
-    Eigen::Vector3f getCylinderAxisDirection()
-    {
-
-        Eigen::Vector3f vec;
-        vec.x() = _cylinder.values[3];
-        vec.y() = _cylinder.values[4];
-        vec.z() = _cylinder.values[5];
-        return vec;
-    }
-
     float getBigRadius() { return _bigRadius; }
 
+    void setBigRadius(float value) { _bigRadius = value; }
+
     float getSmallRadius() { return _smallRadius; }
+
+    void setSmallRadius(float value) { _smallRadius = value; }
 
     Eigen::Affine3d getBigCylinderMatrix() { return _tBig; }
 
@@ -517,9 +498,15 @@ private:
     void computeTransformation()
     {
 
-        _centerBig = getBigCylinderCenter();
-        _centerVec = getSmallCylindersCenter();
-        _axisDir = getCylinderAxisDirection();
+        _centerBig = _centerCylinder.getVector3fMap();
+
+        _centerVec.push_back(_PointsAxes[0].getVector3fMap());
+        _centerVec.push_back(_PointsAxes[1].getVector3fMap());
+        _centerVec.push_back(_PointsAxes[2].getVector3fMap());
+
+        _axisDir.x() = _cylinder.values[3];
+        _axisDir.y() = _cylinder.values[4];
+        _axisDir.z() = _cylinder.values[5];
 
         _centerSmall2 = _centerVec[2];
 
@@ -556,7 +543,7 @@ private:
             std::cout << "error computing affine transform" << std::endl;
         }
 
-        // each cylinder is defined by its own affine transformation matrix. It is easly transformed into a pose_msg in ROS
+        // Each cylinder is defined by its own affine transformation matrix. It is easly transformed into a pose_msg in ROS
 
         // big cylinder
         _tBig = transformation;
@@ -589,8 +576,7 @@ private:
     std::vector<Eigen::Vector3f> _centerVec;
     Eigen::Affine3d _tBig, _tSmall0, _tSmall1, _tSmall2;
 
-    float _bigRadius,
-        _smallRadius;
+    float _bigRadius, _smallRadius;
 };
 
 // Align a rigid object to a scene with clutter and occlusions
@@ -623,6 +609,8 @@ int main(int argc, char **argv)
     ft.findFin(result);
 
     BasketModel bm;
+    bm.setBigRadius(0.3);
+    bm.setSmallRadius(0.02);
     bm.buildBasketModel(result);
 
     Eigen::Affine3d bigMatrix = bm.getBigCylinderMatrix();
