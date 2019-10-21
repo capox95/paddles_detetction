@@ -149,32 +149,42 @@ public:
 
         _pointsMaxMin = getMiddlePoint(source, _lines[0]);
 
-        _bigRadius = 0.3;
+        _bigRadius = 0.2;
         buildCylinder(_lines, _cylinder, _centerCylinder, _bigRadius);
         _newPoints = calculateNewPoints(_cylinder, _centerCylinder, _bigRadius, _lines[0]);
 
         _newPoints.push_back(_pointsMaxMin[2]);
-        _smallRadius = 0.03;
+        _smallRadius = 0.02;
         _PointsAxes = findPointsOnAxes(_newPoints, _centerCylinder, _smallRadius);
+
+        computeTransformation();
 
         //compute 3 small cylinders coefficients
         //computeThreeCylinders(_newPoints, _lines[0], _smallRadius, _smallCylinders);
     }
 
-    void visualizeBasketModel(pcl::PointCloud<pcl::PointNormal>::Ptr &source)
+    void visualizeBasketModel(pcl::PointCloud<pcl::PointNormal>::Ptr &source,
+                              bool planes_flag = false, bool cylinder_flag = false, bool lines_flag = false)
     {
         // Visualization
         pcl::visualization::PCLVisualizer vizS("PCL Result");
         vizS.addCoordinateSystem(0.1, "coordinate");
         vizS.setBackgroundColor(0.0, 0.0, 0.5);
         vizS.addPointCloud<pcl::PointNormal>(source, "source");
-        //vizS.addPlane(_planes[0], "planes0");
-        //vizS.addPlane(_planes[1], "planes1");
-        //vizS.addLine(_lines[0], "line");
 
-        //vizS.addLine(_lines[1], "line_plane_a");
-        //vizS.addLine(_lines[2], "line_plane_b");
-        //vizS.addLine(_lines[3], "line_diagonal");
+        if (planes_flag)
+        {
+            vizS.addPlane(_planes[0], "planes0");
+            vizS.addPlane(_planes[1], "planes1");
+        }
+
+        if (lines_flag)
+        {
+            vizS.addLine(_lines[0], "line");
+            vizS.addLine(_lines[1], "line_plane_a");
+            vizS.addLine(_lines[2], "line_plane_b");
+            vizS.addLine(_lines[3], "line_diagonal");
+        }
 
         vizS.addSphere(_centerCylinder, 0.01, "center_cylinder");
         //vizS.addSphere(newPoints[2], 0.01, 1.0f, 0.0f, 0.0f, "line_point");
@@ -189,14 +199,16 @@ public:
         vizS.addSphere(_PointsAxes[1], 0.01, 0.8f, 0.2f, 0.5f, "PointsAxes1");
         vizS.addSphere(_PointsAxes[2], 0.01, 0.8f, 0.2f, 0.5f, "PointsAxes2");
 
-        vizS.addCylinder(_cylinder, "cylinder");
-        //if (_smallCylinders.size() == 3)
-        //{
-        //vizS.addCylinder(_smallCylinders[0], "cylinder0");
-        //vizS.addCylinder(_smallCylinders[1], "cylinder1");
-        //vizS.addCylinder(_smallCylinders[2], "cylinder2");
-        //}
-
+        if (cylinder_flag)
+        {
+            vizS.addCylinder(_cylinder, "cylinder");
+            //if (_smallCylinders.size() == 3)
+            //{
+            //vizS.addCylinder(_smallCylinders[0], "cylinder0");
+            //vizS.addCylinder(_smallCylinders[1], "cylinder1");
+            //vizS.addCylinder(_smallCylinders[2], "cylinder2");
+            //}
+        }
         vizS.spin();
     }
 
@@ -229,6 +241,18 @@ public:
     float getBigRadius() { return _bigRadius; }
 
     float getSmallRadius() { return _smallRadius; }
+
+    Eigen::Affine3d getBigCylinderMatrix() { return _tBig; }
+
+    Eigen::Affine3d getSmallCylinderMatrix(int number)
+    {
+        if (number == 0)
+            return _tSmall0;
+        else if (number == 1)
+            return _tSmall1;
+        else if (number == 2)
+            return _tSmall2;
+    }
 
 private:
     void copyCloudPointNormal(pcl::PointCloud<pcl::PointNormal>::Ptr &source,
@@ -294,8 +318,8 @@ private:
             plane_b = -plane_b;
 
         float dot_product = acos(plane_a.head<3>().dot(plane_b.head<3>())); // can be used to verify planes estimations
-        if (dot_product > 1.2 || dot_product < 1.0)
-            pcl::console::print_highlight("angle between planes is not consistent!");
+        if (dot_product > 2.2 || dot_product < 1.9)
+            pcl::console::print_highlight("angle between planes is not consistent! value: %f\n", dot_product);
 
         Eigen::VectorXf line;
         pcl::planeWithPlaneIntersection(plane_a, plane_b, line);
@@ -349,7 +373,7 @@ private:
         center_cylinder.getArray3fMap() = point_on_axis;
 
         std::vector<float> cylinder_values{center_cylinder.x, center_cylinder.y, center_cylinder.z,
-                                           lines[0].values[3], lines[0].values[4], lines[0].values[5], radius};
+                                           lines[0].values[3], lines[0].values[4], lines[0].values[5], 0.2};
         cylinder.values = cylinder_values;
     }
 
@@ -490,6 +514,66 @@ private:
         return;
     }
 
+    void computeTransformation()
+    {
+
+        _centerBig = getBigCylinderCenter();
+        _centerVec = getSmallCylindersCenter();
+        _axisDir = getCylinderAxisDirection();
+
+        _centerSmall2 = _centerVec[2];
+
+        Eigen::Vector3f axis2 = _centerSmall2 - _centerBig;
+
+        _axisDir.normalize();
+        axis2.normalize();
+
+        Eigen::VectorXd from_line_x, from_line_z, to_line_x, to_line_z;
+
+        from_line_x.resize(6);
+        from_line_z.resize(6);
+        to_line_x.resize(6);
+        to_line_z.resize(6);
+
+        //Origin
+        from_line_x << 0, 0, 0, 1, 0, 0;
+        from_line_z << 0, 0, 0, 0, 0, 1;
+
+        to_line_x.head<3>() = _centerBig.cast<double>();
+        to_line_x.tail<3>() = axis2.cast<double>();
+
+        to_line_z.head<3>() = _centerBig.cast<double>();
+        to_line_z.tail<3>() = _axisDir.cast<double>();
+
+        Eigen::Affine3d transformation;
+        if (pcl::transformBetween2CoordinateSystems(from_line_x, from_line_z, to_line_x, to_line_z, transformation))
+        {
+            //std::cout << "Transformation matrix: \n"
+            //          << transformation.matrix() << std::endl;
+        }
+        else
+        {
+            std::cout << "error computing affine transform" << std::endl;
+        }
+
+        // each cylinder is defined by its own affine transformation matrix. It is easly transformed into a pose_msg in ROS
+
+        // big cylinder
+        _tBig = transformation;
+
+        // small cylinder 0
+        _tSmall0.linear() = transformation.linear();
+        _tSmall0.translation() = _centerVec[0].cast<double>();
+
+        // small cylinder 1
+        _tSmall1.linear() = transformation.linear();
+        _tSmall1.translation() = _centerVec[1].cast<double>();
+
+        // small cylinder 2
+        _tSmall2.linear() = transformation.linear();
+        _tSmall2.translation() = _centerVec[2].cast<double>();
+    }
+
 private:
     std::vector<pcl::PointXYZ> _pointsMaxMin;
     std::vector<pcl::PointXYZ> _newPoints;
@@ -501,7 +585,12 @@ private:
     pcl::ModelCoefficients _cylinder;
     pcl::PointXYZ _centerCylinder;
 
-    float _bigRadius, _smallRadius;
+    Eigen::Vector3f _centerBig, _axisDir, _centerSmall0, _centerSmall1, _centerSmall2;
+    std::vector<Eigen::Vector3f> _centerVec;
+    Eigen::Affine3d _tBig, _tSmall0, _tSmall1, _tSmall2;
+
+    float _bigRadius,
+        _smallRadius;
 };
 
 // Align a rigid object to a scene with clutter and occlusions
@@ -536,25 +625,19 @@ int main(int argc, char **argv)
     BasketModel bm;
     bm.buildBasketModel(result);
 
-    // retrieve results
-    Eigen::Vector3f bigCylinderCenter = bm.getBigCylinderCenter();
-    std::vector<Eigen::Vector3f> smallCylindersCenter = bm.getSmallCylindersCenter();
-    Eigen::Vector3f axisDirection = bm.getCylinderAxisDirection();
+    Eigen::Affine3d bigMatrix = bm.getBigCylinderMatrix();
+    Eigen::Affine3d smallMatrix0 = bm.getSmallCylinderMatrix(0);
+    Eigen::Affine3d smallMatrix2 = bm.getSmallCylinderMatrix(1);
+    Eigen::Affine3d smallMatrix3 = bm.getSmallCylinderMatrix(2);
 
-    float bigRadius = bm.getBigRadius();
-    float smallRadius = bm.getSmallRadius();
-
-    pcl::console::print_highlight("big cylinder center: %f, %f, %f\n",
-                                  bigCylinderCenter.x(), bigCylinderCenter.y(), bigCylinderCenter.z());
-    for (int i = 0; i < smallCylindersCenter.size(); i++)
-        pcl::console::print_highlight("small cylinder %d center: %f, %f, %f\n",
-                                      i, smallCylindersCenter[i].x(), smallCylindersCenter[i].y(), smallCylindersCenter[i].z());
-    pcl::console::print_highlight("axis cylinder direction: %f, %f, %f\n",
-                                  axisDirection.x(), axisDirection.y(), axisDirection.z());
-    pcl::console::print_highlight("big cylinder radius %f, small cylinder radius %f\n", bigRadius, smallRadius);
-
-    //pcl::visualization::PCLVisualizer visuR("Result");
-    //visuR.addPointCloud(result, "result");
+    std::cout << "bigMatrix: \n"
+              << bigMatrix.matrix() << std::endl;
+    std::cout << "smallMatrix0: \n"
+              << smallMatrix0.matrix() << std::endl;
+    std::cout << "smallMatrix2: \n"
+              << smallMatrix2.matrix() << std::endl;
+    std::cout << "smallMatrix3:  \n"
+              << smallMatrix3.matrix() << std::endl;
 
     // Show alignment
     pcl::visualization::PCLVisualizer visu("Alignment");
