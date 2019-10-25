@@ -34,17 +34,17 @@ int main(int argc, char **argv)
         return (1);
     }
 
-    pcl::PointCloud<pcl::PointNormal>::Ptr result(new pcl::PointCloud<pcl::PointNormal>);
     FindTarget ft;
     ft.object = object;
     ft.scene = scene;
-    ft.compute();
+    bool success = ft.compute();
+    if (!success)
+        return -1;
 
-    /* // ft.object_icp is PointNormal instead the class expected a PointXYZ !1!!!!!
     BasketModel bm;
     bm.setBigRadius(0.3);
     bm.setSmallRadius(0.02);
-    bm.buildBasketModel(ft.object_icp);
+    bm.compute(ft.object_icp);
 
     Eigen::Affine3d bigMatrix = bm.getBigCylinderMatrix();
     Eigen::Affine3d smallMatrix0 = bm.getSmallCylinderMatrix(0);
@@ -60,14 +60,8 @@ int main(int argc, char **argv)
     std::cout << "smallMatrix3:  \n"
               << smallMatrix3.matrix() << std::endl;
 
-    // Show alignment
-    pcl::visualization::PCLVisualizer visu("Alignment");
-    visu.addPointCloud(scene, ColorHandlerT(scene, 0.0, 255.0, 0.0), "scene");
-    visu.addPointCloud(ft.object_aligned, ColorHandlerT(ft.object_aligned, 0.0, 0.0, 255.0), "object_aligned");
-
+    ft.visualize(false);
     bm.visualizeBasketModel(scene);
 
-    visu.spin();
-*/
     return (0);
 }

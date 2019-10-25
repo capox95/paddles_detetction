@@ -33,7 +33,7 @@ int main(int argc, char **argv)
     bm.setSmallRadius(0.02);
     {
         pcl::ScopeTime t("Processing");
-        bm.buildBasketModel(source);
+        bm.compute(source);
 
         Eigen::Affine3d bigMatrix = bm.getBigCylinderMatrix();
 

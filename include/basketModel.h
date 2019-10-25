@@ -43,7 +43,7 @@ public:
         _smallRadius = 0.02;
     }
 
-    void buildBasketModel(pcl::PointCloud<pcl::PointNormal>::Ptr &source);
+    void compute(pcl::PointCloud<pcl::PointNormal>::Ptr &source);
 
     void visualizeBasketModel(pcl::PointCloud<pcl::PointNormal>::Ptr &source,
                               bool planes_flag = false, bool cylinder_flag = false, bool lines_flag = false);

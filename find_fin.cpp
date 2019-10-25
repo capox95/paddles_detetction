@@ -33,7 +33,6 @@ int main(int argc, char **argv)
     return (1);
   }
 
-  pcl::PointCloud<pcl::PointXYZ>::Ptr result(new pcl::PointCloud<pcl::PointXYZ>);
   FindTarget ft;
   ft.object = object;
   ft.scene = scene;

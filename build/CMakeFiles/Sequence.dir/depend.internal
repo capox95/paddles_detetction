@@ -980,6 +980,7 @@ CMakeFiles/Sequence.dir/classes/findTarget.cpp.o
  /usr/local/include/vtk-7.1/vtkkwiml/abi.h
  /usr/local/include/vtk-7.1/vtkkwiml/int.h
 CMakeFiles/Sequence.dir/sequence.cpp.o
+ /home/alessio/dev/BasketFin/include/basketModel.h
  /home/alessio/dev/BasketFin/include/findTarget.h
  /home/alessio/dev/BasketFin/sequence.cpp
  /usr/include/eigen3/Eigen/Cholesky

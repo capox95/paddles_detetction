@@ -1,6 +1,6 @@
 #include "../include/basketModel.h"
 
-void BasketModel::buildBasketModel(pcl::PointCloud<pcl::PointNormal>::Ptr &source)
+void BasketModel::compute(pcl::PointCloud<pcl::PointNormal>::Ptr &source)
 {
     pcl::PointCloud<pcl::PointNormal>::Ptr cloud_plane(new pcl::PointCloud<pcl::PointNormal>);
     copyCloudPointNormal(source, cloud_plane);
