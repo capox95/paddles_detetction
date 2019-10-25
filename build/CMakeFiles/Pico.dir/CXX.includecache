@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/alessio/dev/Thesis/BasketFin/pico.cpp
+/home/alessio/dev/BasketFin/pico.cpp
 pcl/pcl_macros.h
 -
 pcl/point_types.h

@@ -293,10 +293,10 @@ int main(int argc, char **argv)
     vizS.setBackgroundColor(0.0, 0.0, 0.5);
     vizS.addPointCloud<pcl::PointNormal>(cloud_normals, "cloud_normals");
     vizS.setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_COLOR, 0.0f, 1.0f, 0.0f, "cloud_normals");
-    vizS.addPointCloudNormals<pcl::PointNormal>(cloud_normals, 1, 0.01, "normals");
+    //vizS.addPointCloudNormals<pcl::PointNormal>(cloud_normals, 1, 0.01, "normals");
 
     viz.spin();
 
-    pcl::io::savePCDFileASCII("test_pcd.pcd", *cloud_normals);
+    //pcl::io::savePCDFileASCII("test_pcd.pcd", *cloud_normals);
     return 0;
 }

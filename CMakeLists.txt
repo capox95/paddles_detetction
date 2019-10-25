@@ -13,7 +13,7 @@ link_directories(${PCL_LIBRARY_DIRS})
 add_definitions(${PCL_DEFINITIONS})
 
 
-add_executable (FindFin find_fin.cpp) #Alignment Prerejective
+add_executable (FindFin find_fin.cpp classes/findTarget.cpp) #Alignment Prerejective + ICP
 target_link_libraries (FindFin ${PCL_LIBRARIES})
 target_link_libraries(FindFin ${Boost_LIBRARIES})
 

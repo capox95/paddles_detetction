@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/FindFin.dir/find_fin.cpp.o"
+  "CMakeFiles/FindFin.dir/classes/findTarget.cpp.o"
   "FindFin.pdb"
   "FindFin"
 )

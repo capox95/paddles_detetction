@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alessio/dev/Thesis/BasketFin
+CMAKE_SOURCE_DIR = /home/alessio/dev/BasketFin
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alessio/dev/Thesis/BasketFin/build
+CMAKE_BINARY_DIR = /home/alessio/dev/BasketFin/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/FindFin.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/FindFin.dir/flags.make
 
 CMakeFiles/FindFin.dir/find_fin.cpp.o: CMakeFiles/FindFin.dir/flags.make
 CMakeFiles/FindFin.dir/find_fin.cpp.o: ../find_fin.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alessio/dev/Thesis/BasketFin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/FindFin.dir/find_fin.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FindFin.dir/find_fin.cpp.o -c /home/alessio/dev/Thesis/BasketFin/find_fin.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/FindFin.dir/find_fin.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FindFin.dir/find_fin.cpp.o -c /home/alessio/dev/BasketFin/find_fin.cpp
 
 CMakeFiles/FindFin.dir/find_fin.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FindFin.dir/find_fin.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alessio/dev/Thesis/BasketFin/find_fin.cpp > CMakeFiles/FindFin.dir/find_fin.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alessio/dev/BasketFin/find_fin.cpp > CMakeFiles/FindFin.dir/find_fin.cpp.i
 
 CMakeFiles/FindFin.dir/find_fin.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FindFin.dir/find_fin.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alessio/dev/Thesis/BasketFin/find_fin.cpp -o CMakeFiles/FindFin.dir/find_fin.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alessio/dev/BasketFin/find_fin.cpp -o CMakeFiles/FindFin.dir/find_fin.cpp.s
 
 CMakeFiles/FindFin.dir/find_fin.cpp.o.requires:
 
@@ -81,14 +81,40 @@ CMakeFiles/FindFin.dir/find_fin.cpp.o.provides: CMakeFiles/FindFin.dir/find_fin.
 CMakeFiles/FindFin.dir/find_fin.cpp.o.provides.build: CMakeFiles/FindFin.dir/find_fin.cpp.o
 
 
+CMakeFiles/FindFin.dir/classes/findTarget.cpp.o: CMakeFiles/FindFin.dir/flags.make
+CMakeFiles/FindFin.dir/classes/findTarget.cpp.o: ../classes/findTarget.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/FindFin.dir/classes/findTarget.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/FindFin.dir/classes/findTarget.cpp.o -c /home/alessio/dev/BasketFin/classes/findTarget.cpp
+
+CMakeFiles/FindFin.dir/classes/findTarget.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FindFin.dir/classes/findTarget.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alessio/dev/BasketFin/classes/findTarget.cpp > CMakeFiles/FindFin.dir/classes/findTarget.cpp.i
+
+CMakeFiles/FindFin.dir/classes/findTarget.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FindFin.dir/classes/findTarget.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alessio/dev/BasketFin/classes/findTarget.cpp -o CMakeFiles/FindFin.dir/classes/findTarget.cpp.s
+
+CMakeFiles/FindFin.dir/classes/findTarget.cpp.o.requires:
+
+.PHONY : CMakeFiles/FindFin.dir/classes/findTarget.cpp.o.requires
+
+CMakeFiles/FindFin.dir/classes/findTarget.cpp.o.provides: CMakeFiles/FindFin.dir/classes/findTarget.cpp.o.requires
+	$(MAKE) -f CMakeFiles/FindFin.dir/build.make CMakeFiles/FindFin.dir/classes/findTarget.cpp.o.provides.build
+.PHONY : CMakeFiles/FindFin.dir/classes/findTarget.cpp.o.provides
+
+CMakeFiles/FindFin.dir/classes/findTarget.cpp.o.provides.build: CMakeFiles/FindFin.dir/classes/findTarget.cpp.o
+
+
 # Object files for target FindFin
 FindFin_OBJECTS = \
-"CMakeFiles/FindFin.dir/find_fin.cpp.o"
+"CMakeFiles/FindFin.dir/find_fin.cpp.o" \
+"CMakeFiles/FindFin.dir/classes/findTarget.cpp.o"
 
 # External object files for target FindFin
 FindFin_EXTERNAL_OBJECTS =
 
 FindFin: CMakeFiles/FindFin.dir/find_fin.cpp.o
+FindFin: CMakeFiles/FindFin.dir/classes/findTarget.cpp.o
 FindFin: CMakeFiles/FindFin.dir/build.make
 FindFin: /usr/local/lib/libpcl_stereo.so
 FindFin: /usr/local/lib/libpcl_surface.so
@@ -186,7 +212,7 @@ FindFin: /usr/local/lib/libpcl_octree.so
 FindFin: /usr/local/lib/libpcl_common.so
 FindFin: /usr/lib/x86_64-linux-gnu/libqhull.so
 FindFin: CMakeFiles/FindFin.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alessio/dev/Thesis/BasketFin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable FindFin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable FindFin"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FindFin.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -195,6 +221,7 @@ CMakeFiles/FindFin.dir/build: FindFin
 .PHONY : CMakeFiles/FindFin.dir/build
 
 CMakeFiles/FindFin.dir/requires: CMakeFiles/FindFin.dir/find_fin.cpp.o.requires
+CMakeFiles/FindFin.dir/requires: CMakeFiles/FindFin.dir/classes/findTarget.cpp.o.requires
 
 .PHONY : CMakeFiles/FindFin.dir/requires
 
@@ -203,6 +230,6 @@ CMakeFiles/FindFin.dir/clean:
 .PHONY : CMakeFiles/FindFin.dir/clean
 
 CMakeFiles/FindFin.dir/depend:
-	cd /home/alessio/dev/Thesis/BasketFin/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alessio/dev/Thesis/BasketFin /home/alessio/dev/Thesis/BasketFin /home/alessio/dev/Thesis/BasketFin/build /home/alessio/dev/Thesis/BasketFin/build /home/alessio/dev/Thesis/BasketFin/build/CMakeFiles/FindFin.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/alessio/dev/BasketFin/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/alessio/dev/BasketFin /home/alessio/dev/BasketFin /home/alessio/dev/BasketFin/build /home/alessio/dev/BasketFin/build /home/alessio/dev/BasketFin/build/CMakeFiles/FindFin.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/FindFin.dir/depend
 

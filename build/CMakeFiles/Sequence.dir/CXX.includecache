@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/alessio/dev/Thesis/BasketFin/sequence.cpp
+/home/alessio/dev/BasketFin/sequence.cpp
 Eigen/Core
 -
 pcl/point_types.h
