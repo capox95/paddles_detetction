@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Planes.dir/planes.cpp.o"
+  "CMakeFiles/Planes.dir/classes/basketModel.cpp.o"
   "Planes.pdb"
   "Planes"
 )

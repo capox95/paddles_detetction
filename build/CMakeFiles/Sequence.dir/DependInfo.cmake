@@ -4,6 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/alessio/dev/BasketFin/classes/basketModel.cpp" "/home/alessio/dev/BasketFin/build/CMakeFiles/Sequence.dir/classes/basketModel.cpp.o"
+  "/home/alessio/dev/BasketFin/classes/findTarget.cpp" "/home/alessio/dev/BasketFin/build/CMakeFiles/Sequence.dir/classes/findTarget.cpp.o"
   "/home/alessio/dev/BasketFin/sequence.cpp" "/home/alessio/dev/BasketFin/build/CMakeFiles/Sequence.dir/sequence.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

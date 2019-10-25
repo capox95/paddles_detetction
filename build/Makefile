@@ -111,19 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named FinModel
-
-# Build rule for target.
-FinModel: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 FinModel
-.PHONY : FinModel
-
-# fast build rule for target.
-FinModel/fast:
-	$(MAKE) -f CMakeFiles/FinModel.dir/build.make CMakeFiles/FinModel.dir/build
-.PHONY : FinModel/fast
-
-#=============================================================================
 # Target rules for targets named FindFin
 
 # Build rule for target.
@@ -150,6 +137,19 @@ Sequence/fast:
 .PHONY : Sequence/fast
 
 #=============================================================================
+# Target rules for targets named Planes
+
+# Build rule for target.
+Planes: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Planes
+.PHONY : Planes
+
+# fast build rule for target.
+Planes/fast:
+	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/build
+.PHONY : Planes/fast
+
+#=============================================================================
 # Target rules for targets named Pico
 
 # Build rule for target.
@@ -163,17 +163,47 @@ Pico/fast:
 .PHONY : Pico/fast
 
 #=============================================================================
-# Target rules for targets named Planes
+# Target rules for targets named FinModel
 
 # Build rule for target.
-Planes: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Planes
-.PHONY : Planes
+FinModel: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FinModel
+.PHONY : FinModel
 
 # fast build rule for target.
-Planes/fast:
-	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/build
-.PHONY : Planes/fast
+FinModel/fast:
+	$(MAKE) -f CMakeFiles/FinModel.dir/build.make CMakeFiles/FinModel.dir/build
+.PHONY : FinModel/fast
+
+classes/basketModel.o: classes/basketModel.cpp.o
+
+.PHONY : classes/basketModel.o
+
+# target to build an object file
+classes/basketModel.cpp.o:
+	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/basketModel.cpp.o
+	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/classes/basketModel.cpp.o
+.PHONY : classes/basketModel.cpp.o
+
+classes/basketModel.i: classes/basketModel.cpp.i
+
+.PHONY : classes/basketModel.i
+
+# target to preprocess a source file
+classes/basketModel.cpp.i:
+	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/basketModel.cpp.i
+	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/classes/basketModel.cpp.i
+.PHONY : classes/basketModel.cpp.i
+
+classes/basketModel.s: classes/basketModel.cpp.s
+
+.PHONY : classes/basketModel.s
+
+# target to generate assembly for a file
+classes/basketModel.cpp.s:
+	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/basketModel.cpp.s
+	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/classes/basketModel.cpp.s
+.PHONY : classes/basketModel.cpp.s
 
 classes/findTarget.o: classes/findTarget.cpp.o
 
@@ -182,6 +212,7 @@ classes/findTarget.o: classes/findTarget.cpp.o
 # target to build an object file
 classes/findTarget.cpp.o:
 	$(MAKE) -f CMakeFiles/FindFin.dir/build.make CMakeFiles/FindFin.dir/classes/findTarget.cpp.o
+	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/findTarget.cpp.o
 .PHONY : classes/findTarget.cpp.o
 
 classes/findTarget.i: classes/findTarget.cpp.i
@@ -191,6 +222,7 @@ classes/findTarget.i: classes/findTarget.cpp.i
 # target to preprocess a source file
 classes/findTarget.cpp.i:
 	$(MAKE) -f CMakeFiles/FindFin.dir/build.make CMakeFiles/FindFin.dir/classes/findTarget.cpp.i
+	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/findTarget.cpp.i
 .PHONY : classes/findTarget.cpp.i
 
 classes/findTarget.s: classes/findTarget.cpp.s
@@ -200,6 +232,7 @@ classes/findTarget.s: classes/findTarget.cpp.s
 # target to generate assembly for a file
 classes/findTarget.cpp.s:
 	$(MAKE) -f CMakeFiles/FindFin.dir/build.make CMakeFiles/FindFin.dir/classes/findTarget.cpp.s
+	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/findTarget.cpp.s
 .PHONY : classes/findTarget.cpp.s
 
 fin_model.o: fin_model.cpp.o
@@ -345,11 +378,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... FinModel"
 	@echo "... FindFin"
 	@echo "... Sequence"
-	@echo "... Pico"
 	@echo "... Planes"
+	@echo "... Pico"
+	@echo "... FinModel"
+	@echo "... classes/basketModel.o"
+	@echo "... classes/basketModel.i"
+	@echo "... classes/basketModel.s"
 	@echo "... classes/findTarget.o"
 	@echo "... classes/findTarget.i"
 	@echo "... classes/findTarget.s"

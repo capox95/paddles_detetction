@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Sequence.dir/sequence.cpp.o"
+  "CMakeFiles/Sequence.dir/classes/findTarget.cpp.o"
+  "CMakeFiles/Sequence.dir/classes/basketModel.cpp.o"
   "Sequence.pdb"
   "Sequence"
 )

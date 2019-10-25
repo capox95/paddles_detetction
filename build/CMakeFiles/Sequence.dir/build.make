@@ -81,14 +81,66 @@ CMakeFiles/Sequence.dir/sequence.cpp.o.provides: CMakeFiles/Sequence.dir/sequenc
 CMakeFiles/Sequence.dir/sequence.cpp.o.provides.build: CMakeFiles/Sequence.dir/sequence.cpp.o
 
 
+CMakeFiles/Sequence.dir/classes/findTarget.cpp.o: CMakeFiles/Sequence.dir/flags.make
+CMakeFiles/Sequence.dir/classes/findTarget.cpp.o: ../classes/findTarget.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Sequence.dir/classes/findTarget.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sequence.dir/classes/findTarget.cpp.o -c /home/alessio/dev/BasketFin/classes/findTarget.cpp
+
+CMakeFiles/Sequence.dir/classes/findTarget.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Sequence.dir/classes/findTarget.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alessio/dev/BasketFin/classes/findTarget.cpp > CMakeFiles/Sequence.dir/classes/findTarget.cpp.i
+
+CMakeFiles/Sequence.dir/classes/findTarget.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Sequence.dir/classes/findTarget.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alessio/dev/BasketFin/classes/findTarget.cpp -o CMakeFiles/Sequence.dir/classes/findTarget.cpp.s
+
+CMakeFiles/Sequence.dir/classes/findTarget.cpp.o.requires:
+
+.PHONY : CMakeFiles/Sequence.dir/classes/findTarget.cpp.o.requires
+
+CMakeFiles/Sequence.dir/classes/findTarget.cpp.o.provides: CMakeFiles/Sequence.dir/classes/findTarget.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/findTarget.cpp.o.provides.build
+.PHONY : CMakeFiles/Sequence.dir/classes/findTarget.cpp.o.provides
+
+CMakeFiles/Sequence.dir/classes/findTarget.cpp.o.provides.build: CMakeFiles/Sequence.dir/classes/findTarget.cpp.o
+
+
+CMakeFiles/Sequence.dir/classes/basketModel.cpp.o: CMakeFiles/Sequence.dir/flags.make
+CMakeFiles/Sequence.dir/classes/basketModel.cpp.o: ../classes/basketModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Sequence.dir/classes/basketModel.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Sequence.dir/classes/basketModel.cpp.o -c /home/alessio/dev/BasketFin/classes/basketModel.cpp
+
+CMakeFiles/Sequence.dir/classes/basketModel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Sequence.dir/classes/basketModel.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alessio/dev/BasketFin/classes/basketModel.cpp > CMakeFiles/Sequence.dir/classes/basketModel.cpp.i
+
+CMakeFiles/Sequence.dir/classes/basketModel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Sequence.dir/classes/basketModel.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alessio/dev/BasketFin/classes/basketModel.cpp -o CMakeFiles/Sequence.dir/classes/basketModel.cpp.s
+
+CMakeFiles/Sequence.dir/classes/basketModel.cpp.o.requires:
+
+.PHONY : CMakeFiles/Sequence.dir/classes/basketModel.cpp.o.requires
+
+CMakeFiles/Sequence.dir/classes/basketModel.cpp.o.provides: CMakeFiles/Sequence.dir/classes/basketModel.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/basketModel.cpp.o.provides.build
+.PHONY : CMakeFiles/Sequence.dir/classes/basketModel.cpp.o.provides
+
+CMakeFiles/Sequence.dir/classes/basketModel.cpp.o.provides.build: CMakeFiles/Sequence.dir/classes/basketModel.cpp.o
+
+
 # Object files for target Sequence
 Sequence_OBJECTS = \
-"CMakeFiles/Sequence.dir/sequence.cpp.o"
+"CMakeFiles/Sequence.dir/sequence.cpp.o" \
+"CMakeFiles/Sequence.dir/classes/findTarget.cpp.o" \
+"CMakeFiles/Sequence.dir/classes/basketModel.cpp.o"
 
 # External object files for target Sequence
 Sequence_EXTERNAL_OBJECTS =
 
 Sequence: CMakeFiles/Sequence.dir/sequence.cpp.o
+Sequence: CMakeFiles/Sequence.dir/classes/findTarget.cpp.o
+Sequence: CMakeFiles/Sequence.dir/classes/basketModel.cpp.o
 Sequence: CMakeFiles/Sequence.dir/build.make
 Sequence: /usr/local/lib/libpcl_stereo.so
 Sequence: /usr/local/lib/libpcl_surface.so
@@ -186,7 +238,7 @@ Sequence: /usr/local/lib/libpcl_octree.so
 Sequence: /usr/local/lib/libpcl_common.so
 Sequence: /usr/lib/x86_64-linux-gnu/libqhull.so
 Sequence: CMakeFiles/Sequence.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable Sequence"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Sequence"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Sequence.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -195,6 +247,8 @@ CMakeFiles/Sequence.dir/build: Sequence
 .PHONY : CMakeFiles/Sequence.dir/build
 
 CMakeFiles/Sequence.dir/requires: CMakeFiles/Sequence.dir/sequence.cpp.o.requires
+CMakeFiles/Sequence.dir/requires: CMakeFiles/Sequence.dir/classes/findTarget.cpp.o.requires
+CMakeFiles/Sequence.dir/requires: CMakeFiles/Sequence.dir/classes/basketModel.cpp.o.requires
 
 .PHONY : CMakeFiles/Sequence.dir/requires
 

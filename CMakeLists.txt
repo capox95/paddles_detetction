@@ -18,19 +18,12 @@ target_link_libraries (FindFin ${PCL_LIBRARIES})
 target_link_libraries(FindFin ${Boost_LIBRARIES})
 
 
-add_executable (Pico pico.cpp) 
-target_link_libraries (Pico ${PCL_LIBRARIES})
-target_link_libraries(Pico ${Boost_LIBRARIES})
-
-add_executable (FinModel fin_model.cpp) 
-target_link_libraries (FinModel ${PCL_LIBRARIES})
-target_link_libraries(FinModel ${Boost_LIBRARIES})
-
-add_executable (Planes planes.cpp) 
+add_executable (Planes planes.cpp classes/basketModel.cpp) 
 target_link_libraries (Planes ${PCL_LIBRARIES})
 target_link_libraries(Planes ${Boost_LIBRARIES})
 
-add_executable (Sequence sequence.cpp) 
+
+add_executable (Sequence sequence.cpp classes/findTarget.cpp classes/basketModel.cpp) 
 target_link_libraries (Sequence ${PCL_LIBRARIES})
 target_link_libraries(Sequence ${Boost_LIBRARIES})
 
@@ -38,6 +31,13 @@ target_link_libraries(Sequence ${Boost_LIBRARIES})
 
 
 
+add_executable (Pico pico.cpp) 
+target_link_libraries (Pico ${PCL_LIBRARIES})
+target_link_libraries(Pico ${Boost_LIBRARIES})
+
+add_executable (FinModel fin_model.cpp) 
+target_link_libraries (FinModel ${PCL_LIBRARIES})
+target_link_libraries(FinModel ${Boost_LIBRARIES})
 
 
 

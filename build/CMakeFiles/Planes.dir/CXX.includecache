@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/alessio/dev/BasketFin/planes.cpp
+/home/alessio/dev/BasketFin/classes/basketModel.cpp
+../include/basketModel.h
+/home/alessio/dev/BasketFin/include/basketModel.h
+
+/home/alessio/dev/BasketFin/include/basketModel.h
 Eigen/Core
 -
 pcl/point_types.h
@@ -35,6 +39,20 @@ pcl/filters/extract_indices.h
 -
 pcl/visualization/pcl_visualizer.h
 -
+
+/home/alessio/dev/BasketFin/planes.cpp
+pcl/point_types.h
+-
+pcl/point_cloud.h
+-
+pcl/common/time.h
+-
+pcl/io/pcd_io.h
+-
+pcl/visualization/pcl_visualizer.h
+-
+include/basketModel.h
+/home/alessio/dev/BasketFin/include/basketModel.h
 
 /usr/include/eigen3/Eigen/Cholesky
 Core
