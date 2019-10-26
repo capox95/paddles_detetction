@@ -22,13 +22,23 @@ add_executable (Planes planes.cpp classes/basketModel.cpp)
 target_link_libraries (Planes ${PCL_LIBRARIES})
 target_link_libraries(Planes ${Boost_LIBRARIES})
 
+add_executable (New new_planes.cpp classes/newBasketModel.cpp) 
+target_link_libraries (New ${PCL_LIBRARIES})
+target_link_libraries(New ${Boost_LIBRARIES})
+
+add_executable (Test test_cylinder.cpp) 
+target_link_libraries (Test ${PCL_LIBRARIES})
+target_link_libraries(Test ${Boost_LIBRARIES})
+
 
 add_executable (Sequence sequence.cpp classes/findTarget.cpp classes/basketModel.cpp) 
 target_link_libraries (Sequence ${PCL_LIBRARIES})
 target_link_libraries(Sequence ${Boost_LIBRARIES})
 
-
-
+# basket5 center and axis dir hardcoded
+add_executable (SequenceB5 sequenceB5.cpp classes/findTarget.cpp classes/newBasketModel.cpp) 
+target_link_libraries (SequenceB5 ${PCL_LIBRARIES})
+target_link_libraries(SequenceB5 ${Boost_LIBRARIES})
 
 
 add_executable (Pico pico.cpp) 

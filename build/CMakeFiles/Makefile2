@@ -60,6 +60,191 @@ CMAKE_SOURCE_DIR = /home/alessio/dev/BasketFin
 CMAKE_BINARY_DIR = /home/alessio/dev/BasketFin/build
 
 #=============================================================================
+# Target rules for target CMakeFiles/FinModel.dir
+
+# All Build rule for target.
+CMakeFiles/FinModel.dir/all:
+	$(MAKE) -f CMakeFiles/FinModel.dir/build.make CMakeFiles/FinModel.dir/depend
+	$(MAKE) -f CMakeFiles/FinModel.dir/build.make CMakeFiles/FinModel.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=1,2 "Built target FinModel"
+.PHONY : CMakeFiles/FinModel.dir/all
+
+# Include target in all.
+all: CMakeFiles/FinModel.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/FinModel.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/FinModel.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 0
+.PHONY : CMakeFiles/FinModel.dir/rule
+
+# Convenience name for target.
+FinModel: CMakeFiles/FinModel.dir/rule
+
+.PHONY : FinModel
+
+# clean rule for target.
+CMakeFiles/FinModel.dir/clean:
+	$(MAKE) -f CMakeFiles/FinModel.dir/build.make CMakeFiles/FinModel.dir/clean
+.PHONY : CMakeFiles/FinModel.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/FinModel.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Pico.dir
+
+# All Build rule for target.
+CMakeFiles/Pico.dir/all:
+	$(MAKE) -f CMakeFiles/Pico.dir/build.make CMakeFiles/Pico.dir/depend
+	$(MAKE) -f CMakeFiles/Pico.dir/build.make CMakeFiles/Pico.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=9,10 "Built target Pico"
+.PHONY : CMakeFiles/Pico.dir/all
+
+# Include target in all.
+all: CMakeFiles/Pico.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Pico.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Pico.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 0
+.PHONY : CMakeFiles/Pico.dir/rule
+
+# Convenience name for target.
+Pico: CMakeFiles/Pico.dir/rule
+
+.PHONY : Pico
+
+# clean rule for target.
+CMakeFiles/Pico.dir/clean:
+	$(MAKE) -f CMakeFiles/Pico.dir/build.make CMakeFiles/Pico.dir/clean
+.PHONY : CMakeFiles/Pico.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Pico.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Planes.dir
+
+# All Build rule for target.
+CMakeFiles/Planes.dir/all:
+	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/depend
+	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=11,12,13 "Built target Planes"
+.PHONY : CMakeFiles/Planes.dir/all
+
+# Include target in all.
+all: CMakeFiles/Planes.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Planes.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Planes.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 0
+.PHONY : CMakeFiles/Planes.dir/rule
+
+# Convenience name for target.
+Planes: CMakeFiles/Planes.dir/rule
+
+.PHONY : Planes
+
+# clean rule for target.
+CMakeFiles/Planes.dir/clean:
+	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/clean
+.PHONY : CMakeFiles/Planes.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Planes.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/New.dir
+
+# All Build rule for target.
+CMakeFiles/New.dir/all:
+	$(MAKE) -f CMakeFiles/New.dir/build.make CMakeFiles/New.dir/depend
+	$(MAKE) -f CMakeFiles/New.dir/build.make CMakeFiles/New.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=6,7,8 "Built target New"
+.PHONY : CMakeFiles/New.dir/all
+
+# Include target in all.
+all: CMakeFiles/New.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/New.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/New.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 0
+.PHONY : CMakeFiles/New.dir/rule
+
+# Convenience name for target.
+New: CMakeFiles/New.dir/rule
+
+.PHONY : New
+
+# clean rule for target.
+CMakeFiles/New.dir/clean:
+	$(MAKE) -f CMakeFiles/New.dir/build.make CMakeFiles/New.dir/clean
+.PHONY : CMakeFiles/New.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/New.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/SequenceB5.dir
+
+# All Build rule for target.
+CMakeFiles/SequenceB5.dir/all:
+	$(MAKE) -f CMakeFiles/SequenceB5.dir/build.make CMakeFiles/SequenceB5.dir/depend
+	$(MAKE) -f CMakeFiles/SequenceB5.dir/build.make CMakeFiles/SequenceB5.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=18,19,20,21 "Built target SequenceB5"
+.PHONY : CMakeFiles/SequenceB5.dir/all
+
+# Include target in all.
+all: CMakeFiles/SequenceB5.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/SequenceB5.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/SequenceB5.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 0
+.PHONY : CMakeFiles/SequenceB5.dir/rule
+
+# Convenience name for target.
+SequenceB5: CMakeFiles/SequenceB5.dir/rule
+
+.PHONY : SequenceB5
+
+# clean rule for target.
+CMakeFiles/SequenceB5.dir/clean:
+	$(MAKE) -f CMakeFiles/SequenceB5.dir/build.make CMakeFiles/SequenceB5.dir/clean
+.PHONY : CMakeFiles/SequenceB5.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/SequenceB5.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/FindFin.dir
 
 # All Build rule for target.
@@ -103,7 +288,7 @@ clean: CMakeFiles/FindFin.dir/clean
 CMakeFiles/Sequence.dir/all:
 	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/depend
 	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=11,12,13,14 "Built target Sequence"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=14,15,16,17 "Built target Sequence"
 .PHONY : CMakeFiles/Sequence.dir/all
 
 # Include target in all.
@@ -134,113 +319,39 @@ clean: CMakeFiles/Sequence.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Planes.dir
+# Target rules for target CMakeFiles/Test.dir
 
 # All Build rule for target.
-CMakeFiles/Planes.dir/all:
-	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/depend
-	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=8,9,10 "Built target Planes"
-.PHONY : CMakeFiles/Planes.dir/all
+CMakeFiles/Test.dir/all:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/depend
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=22,23 "Built target Test"
+.PHONY : CMakeFiles/Test.dir/all
 
 # Include target in all.
-all: CMakeFiles/Planes.dir/all
+all: CMakeFiles/Test.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Planes.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Planes.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 0
-.PHONY : CMakeFiles/Planes.dir/rule
-
-# Convenience name for target.
-Planes: CMakeFiles/Planes.dir/rule
-
-.PHONY : Planes
-
-# clean rule for target.
-CMakeFiles/Planes.dir/clean:
-	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/clean
-.PHONY : CMakeFiles/Planes.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/Planes.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/Pico.dir
-
-# All Build rule for target.
-CMakeFiles/Pico.dir/all:
-	$(MAKE) -f CMakeFiles/Pico.dir/build.make CMakeFiles/Pico.dir/depend
-	$(MAKE) -f CMakeFiles/Pico.dir/build.make CMakeFiles/Pico.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=6,7 "Built target Pico"
-.PHONY : CMakeFiles/Pico.dir/all
-
-# Include target in all.
-all: CMakeFiles/Pico.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/Pico.dir/rule: cmake_check_build_system
+CMakeFiles/Test.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Pico.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 0
-.PHONY : CMakeFiles/Pico.dir/rule
+.PHONY : CMakeFiles/Test.dir/rule
 
 # Convenience name for target.
-Pico: CMakeFiles/Pico.dir/rule
+Test: CMakeFiles/Test.dir/rule
 
-.PHONY : Pico
-
-# clean rule for target.
-CMakeFiles/Pico.dir/clean:
-	$(MAKE) -f CMakeFiles/Pico.dir/build.make CMakeFiles/Pico.dir/clean
-.PHONY : CMakeFiles/Pico.dir/clean
+.PHONY : Test
 
 # clean rule for target.
-clean: CMakeFiles/Pico.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/FinModel.dir
-
-# All Build rule for target.
-CMakeFiles/FinModel.dir/all:
-	$(MAKE) -f CMakeFiles/FinModel.dir/build.make CMakeFiles/FinModel.dir/depend
-	$(MAKE) -f CMakeFiles/FinModel.dir/build.make CMakeFiles/FinModel.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alessio/dev/BasketFin/build/CMakeFiles --progress-num=1,2 "Built target FinModel"
-.PHONY : CMakeFiles/FinModel.dir/all
-
-# Include target in all.
-all: CMakeFiles/FinModel.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/FinModel.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/FinModel.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alessio/dev/BasketFin/build/CMakeFiles 0
-.PHONY : CMakeFiles/FinModel.dir/rule
-
-# Convenience name for target.
-FinModel: CMakeFiles/FinModel.dir/rule
-
-.PHONY : FinModel
+CMakeFiles/Test.dir/clean:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/clean
+.PHONY : CMakeFiles/Test.dir/clean
 
 # clean rule for target.
-CMakeFiles/FinModel.dir/clean:
-	$(MAKE) -f CMakeFiles/FinModel.dir/build.make CMakeFiles/FinModel.dir/clean
-.PHONY : CMakeFiles/FinModel.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/FinModel.dir/clean
+clean: CMakeFiles/Test.dir/clean
 
 .PHONY : clean
 

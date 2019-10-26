@@ -209,8 +209,13 @@ void BasketModel::buildCylinder(std::vector<pcl::ModelCoefficients> &lines,
     point_on_axis.z() = lines[0].values[2] - radius * lines[3].values[5];
     center_cylinder.getArray3fMap() = point_on_axis;
 
+    std::cout << "point on axis: \n"
+              << point_on_axis << std::endl;
+
+    std::cout << "axis values: " << lines[0].values[3] << ", " << lines[0].values[4] << ", " << lines[0].values[5] << std::endl;
+
     std::vector<float> cylinder_values{center_cylinder.x, center_cylinder.y, center_cylinder.z,
-                                       lines[0].values[3], lines[0].values[4], lines[0].values[5], 0.2};
+                                       lines[0].values[3], lines[0].values[4], lines[0].values[5], radius};
     cylinder.values = cylinder_values;
 }
 

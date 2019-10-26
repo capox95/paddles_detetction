@@ -111,6 +111,71 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named FinModel
+
+# Build rule for target.
+FinModel: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FinModel
+.PHONY : FinModel
+
+# fast build rule for target.
+FinModel/fast:
+	$(MAKE) -f CMakeFiles/FinModel.dir/build.make CMakeFiles/FinModel.dir/build
+.PHONY : FinModel/fast
+
+#=============================================================================
+# Target rules for targets named Pico
+
+# Build rule for target.
+Pico: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Pico
+.PHONY : Pico
+
+# fast build rule for target.
+Pico/fast:
+	$(MAKE) -f CMakeFiles/Pico.dir/build.make CMakeFiles/Pico.dir/build
+.PHONY : Pico/fast
+
+#=============================================================================
+# Target rules for targets named Planes
+
+# Build rule for target.
+Planes: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Planes
+.PHONY : Planes
+
+# fast build rule for target.
+Planes/fast:
+	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/build
+.PHONY : Planes/fast
+
+#=============================================================================
+# Target rules for targets named New
+
+# Build rule for target.
+New: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 New
+.PHONY : New
+
+# fast build rule for target.
+New/fast:
+	$(MAKE) -f CMakeFiles/New.dir/build.make CMakeFiles/New.dir/build
+.PHONY : New/fast
+
+#=============================================================================
+# Target rules for targets named SequenceB5
+
+# Build rule for target.
+SequenceB5: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 SequenceB5
+.PHONY : SequenceB5
+
+# fast build rule for target.
+SequenceB5/fast:
+	$(MAKE) -f CMakeFiles/SequenceB5.dir/build.make CMakeFiles/SequenceB5.dir/build
+.PHONY : SequenceB5/fast
+
+#=============================================================================
 # Target rules for targets named FindFin
 
 # Build rule for target.
@@ -137,43 +202,17 @@ Sequence/fast:
 .PHONY : Sequence/fast
 
 #=============================================================================
-# Target rules for targets named Planes
+# Target rules for targets named Test
 
 # Build rule for target.
-Planes: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Planes
-.PHONY : Planes
+Test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Test
+.PHONY : Test
 
 # fast build rule for target.
-Planes/fast:
-	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/build
-.PHONY : Planes/fast
-
-#=============================================================================
-# Target rules for targets named Pico
-
-# Build rule for target.
-Pico: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Pico
-.PHONY : Pico
-
-# fast build rule for target.
-Pico/fast:
-	$(MAKE) -f CMakeFiles/Pico.dir/build.make CMakeFiles/Pico.dir/build
-.PHONY : Pico/fast
-
-#=============================================================================
-# Target rules for targets named FinModel
-
-# Build rule for target.
-FinModel: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 FinModel
-.PHONY : FinModel
-
-# fast build rule for target.
-FinModel/fast:
-	$(MAKE) -f CMakeFiles/FinModel.dir/build.make CMakeFiles/FinModel.dir/build
-.PHONY : FinModel/fast
+Test/fast:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/build
+.PHONY : Test/fast
 
 classes/basketModel.o: classes/basketModel.cpp.o
 
@@ -181,8 +220,8 @@ classes/basketModel.o: classes/basketModel.cpp.o
 
 # target to build an object file
 classes/basketModel.cpp.o:
-	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/basketModel.cpp.o
 	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/classes/basketModel.cpp.o
+	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/basketModel.cpp.o
 .PHONY : classes/basketModel.cpp.o
 
 classes/basketModel.i: classes/basketModel.cpp.i
@@ -191,8 +230,8 @@ classes/basketModel.i: classes/basketModel.cpp.i
 
 # target to preprocess a source file
 classes/basketModel.cpp.i:
-	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/basketModel.cpp.i
 	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/classes/basketModel.cpp.i
+	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/basketModel.cpp.i
 .PHONY : classes/basketModel.cpp.i
 
 classes/basketModel.s: classes/basketModel.cpp.s
@@ -201,8 +240,8 @@ classes/basketModel.s: classes/basketModel.cpp.s
 
 # target to generate assembly for a file
 classes/basketModel.cpp.s:
-	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/basketModel.cpp.s
 	$(MAKE) -f CMakeFiles/Planes.dir/build.make CMakeFiles/Planes.dir/classes/basketModel.cpp.s
+	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/basketModel.cpp.s
 .PHONY : classes/basketModel.cpp.s
 
 classes/findTarget.o: classes/findTarget.cpp.o
@@ -211,6 +250,7 @@ classes/findTarget.o: classes/findTarget.cpp.o
 
 # target to build an object file
 classes/findTarget.cpp.o:
+	$(MAKE) -f CMakeFiles/SequenceB5.dir/build.make CMakeFiles/SequenceB5.dir/classes/findTarget.cpp.o
 	$(MAKE) -f CMakeFiles/FindFin.dir/build.make CMakeFiles/FindFin.dir/classes/findTarget.cpp.o
 	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/findTarget.cpp.o
 .PHONY : classes/findTarget.cpp.o
@@ -221,6 +261,7 @@ classes/findTarget.i: classes/findTarget.cpp.i
 
 # target to preprocess a source file
 classes/findTarget.cpp.i:
+	$(MAKE) -f CMakeFiles/SequenceB5.dir/build.make CMakeFiles/SequenceB5.dir/classes/findTarget.cpp.i
 	$(MAKE) -f CMakeFiles/FindFin.dir/build.make CMakeFiles/FindFin.dir/classes/findTarget.cpp.i
 	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/findTarget.cpp.i
 .PHONY : classes/findTarget.cpp.i
@@ -231,9 +272,40 @@ classes/findTarget.s: classes/findTarget.cpp.s
 
 # target to generate assembly for a file
 classes/findTarget.cpp.s:
+	$(MAKE) -f CMakeFiles/SequenceB5.dir/build.make CMakeFiles/SequenceB5.dir/classes/findTarget.cpp.s
 	$(MAKE) -f CMakeFiles/FindFin.dir/build.make CMakeFiles/FindFin.dir/classes/findTarget.cpp.s
 	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/classes/findTarget.cpp.s
 .PHONY : classes/findTarget.cpp.s
+
+classes/newBasketModel.o: classes/newBasketModel.cpp.o
+
+.PHONY : classes/newBasketModel.o
+
+# target to build an object file
+classes/newBasketModel.cpp.o:
+	$(MAKE) -f CMakeFiles/New.dir/build.make CMakeFiles/New.dir/classes/newBasketModel.cpp.o
+	$(MAKE) -f CMakeFiles/SequenceB5.dir/build.make CMakeFiles/SequenceB5.dir/classes/newBasketModel.cpp.o
+.PHONY : classes/newBasketModel.cpp.o
+
+classes/newBasketModel.i: classes/newBasketModel.cpp.i
+
+.PHONY : classes/newBasketModel.i
+
+# target to preprocess a source file
+classes/newBasketModel.cpp.i:
+	$(MAKE) -f CMakeFiles/New.dir/build.make CMakeFiles/New.dir/classes/newBasketModel.cpp.i
+	$(MAKE) -f CMakeFiles/SequenceB5.dir/build.make CMakeFiles/SequenceB5.dir/classes/newBasketModel.cpp.i
+.PHONY : classes/newBasketModel.cpp.i
+
+classes/newBasketModel.s: classes/newBasketModel.cpp.s
+
+.PHONY : classes/newBasketModel.s
+
+# target to generate assembly for a file
+classes/newBasketModel.cpp.s:
+	$(MAKE) -f CMakeFiles/New.dir/build.make CMakeFiles/New.dir/classes/newBasketModel.cpp.s
+	$(MAKE) -f CMakeFiles/SequenceB5.dir/build.make CMakeFiles/SequenceB5.dir/classes/newBasketModel.cpp.s
+.PHONY : classes/newBasketModel.cpp.s
 
 fin_model.o: fin_model.cpp.o
 
@@ -288,6 +360,33 @@ find_fin.s: find_fin.cpp.s
 find_fin.cpp.s:
 	$(MAKE) -f CMakeFiles/FindFin.dir/build.make CMakeFiles/FindFin.dir/find_fin.cpp.s
 .PHONY : find_fin.cpp.s
+
+new_planes.o: new_planes.cpp.o
+
+.PHONY : new_planes.o
+
+# target to build an object file
+new_planes.cpp.o:
+	$(MAKE) -f CMakeFiles/New.dir/build.make CMakeFiles/New.dir/new_planes.cpp.o
+.PHONY : new_planes.cpp.o
+
+new_planes.i: new_planes.cpp.i
+
+.PHONY : new_planes.i
+
+# target to preprocess a source file
+new_planes.cpp.i:
+	$(MAKE) -f CMakeFiles/New.dir/build.make CMakeFiles/New.dir/new_planes.cpp.i
+.PHONY : new_planes.cpp.i
+
+new_planes.s: new_planes.cpp.s
+
+.PHONY : new_planes.s
+
+# target to generate assembly for a file
+new_planes.cpp.s:
+	$(MAKE) -f CMakeFiles/New.dir/build.make CMakeFiles/New.dir/new_planes.cpp.s
+.PHONY : new_planes.cpp.s
 
 pico.o: pico.cpp.o
 
@@ -370,6 +469,60 @@ sequence.cpp.s:
 	$(MAKE) -f CMakeFiles/Sequence.dir/build.make CMakeFiles/Sequence.dir/sequence.cpp.s
 .PHONY : sequence.cpp.s
 
+sequenceB5.o: sequenceB5.cpp.o
+
+.PHONY : sequenceB5.o
+
+# target to build an object file
+sequenceB5.cpp.o:
+	$(MAKE) -f CMakeFiles/SequenceB5.dir/build.make CMakeFiles/SequenceB5.dir/sequenceB5.cpp.o
+.PHONY : sequenceB5.cpp.o
+
+sequenceB5.i: sequenceB5.cpp.i
+
+.PHONY : sequenceB5.i
+
+# target to preprocess a source file
+sequenceB5.cpp.i:
+	$(MAKE) -f CMakeFiles/SequenceB5.dir/build.make CMakeFiles/SequenceB5.dir/sequenceB5.cpp.i
+.PHONY : sequenceB5.cpp.i
+
+sequenceB5.s: sequenceB5.cpp.s
+
+.PHONY : sequenceB5.s
+
+# target to generate assembly for a file
+sequenceB5.cpp.s:
+	$(MAKE) -f CMakeFiles/SequenceB5.dir/build.make CMakeFiles/SequenceB5.dir/sequenceB5.cpp.s
+.PHONY : sequenceB5.cpp.s
+
+test_cylinder.o: test_cylinder.cpp.o
+
+.PHONY : test_cylinder.o
+
+# target to build an object file
+test_cylinder.cpp.o:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/test_cylinder.cpp.o
+.PHONY : test_cylinder.cpp.o
+
+test_cylinder.i: test_cylinder.cpp.i
+
+.PHONY : test_cylinder.i
+
+# target to preprocess a source file
+test_cylinder.cpp.i:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/test_cylinder.cpp.i
+.PHONY : test_cylinder.cpp.i
+
+test_cylinder.s: test_cylinder.cpp.s
+
+.PHONY : test_cylinder.s
+
+# target to generate assembly for a file
+test_cylinder.cpp.s:
+	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/test_cylinder.cpp.s
+.PHONY : test_cylinder.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -377,24 +530,33 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... FinModel"
+	@echo "... Pico"
+	@echo "... Planes"
 	@echo "... rebuild_cache"
+	@echo "... New"
+	@echo "... SequenceB5"
 	@echo "... FindFin"
 	@echo "... Sequence"
-	@echo "... Planes"
-	@echo "... Pico"
-	@echo "... FinModel"
+	@echo "... Test"
 	@echo "... classes/basketModel.o"
 	@echo "... classes/basketModel.i"
 	@echo "... classes/basketModel.s"
 	@echo "... classes/findTarget.o"
 	@echo "... classes/findTarget.i"
 	@echo "... classes/findTarget.s"
+	@echo "... classes/newBasketModel.o"
+	@echo "... classes/newBasketModel.i"
+	@echo "... classes/newBasketModel.s"
 	@echo "... fin_model.o"
 	@echo "... fin_model.i"
 	@echo "... fin_model.s"
 	@echo "... find_fin.o"
 	@echo "... find_fin.i"
 	@echo "... find_fin.s"
+	@echo "... new_planes.o"
+	@echo "... new_planes.i"
+	@echo "... new_planes.s"
 	@echo "... pico.o"
 	@echo "... pico.i"
 	@echo "... pico.s"
@@ -404,6 +566,12 @@ help:
 	@echo "... sequence.o"
 	@echo "... sequence.i"
 	@echo "... sequence.s"
+	@echo "... sequenceB5.o"
+	@echo "... sequenceB5.i"
+	@echo "... sequenceB5.s"
+	@echo "... test_cylinder.o"
+	@echo "... test_cylinder.i"
+	@echo "... test_cylinder.s"
 .PHONY : help
 
 

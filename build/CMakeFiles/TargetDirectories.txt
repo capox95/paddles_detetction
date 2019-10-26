@@ -1,7 +1,10 @@
 /home/alessio/dev/BasketFin/build/CMakeFiles/edit_cache.dir
+/home/alessio/dev/BasketFin/build/CMakeFiles/FinModel.dir
+/home/alessio/dev/BasketFin/build/CMakeFiles/Pico.dir
+/home/alessio/dev/BasketFin/build/CMakeFiles/Planes.dir
 /home/alessio/dev/BasketFin/build/CMakeFiles/rebuild_cache.dir
+/home/alessio/dev/BasketFin/build/CMakeFiles/New.dir
+/home/alessio/dev/BasketFin/build/CMakeFiles/SequenceB5.dir
 /home/alessio/dev/BasketFin/build/CMakeFiles/FindFin.dir
 /home/alessio/dev/BasketFin/build/CMakeFiles/Sequence.dir
-/home/alessio/dev/BasketFin/build/CMakeFiles/Planes.dir
-/home/alessio/dev/BasketFin/build/CMakeFiles/Pico.dir
-/home/alessio/dev/BasketFin/build/CMakeFiles/FinModel.dir
+/home/alessio/dev/BasketFin/build/CMakeFiles/Test.dir

@@ -40,7 +40,7 @@ int main(int argc, char **argv)
         std::cout << "big cylinder transformatation matrix: \n"
                   << bigMatrix.matrix() << std::endl;
     }
-    bm.visualizeBasketModel(source);
+    bm.visualizeBasketModel(source, true, true, true);
 
     return (0);
 }
