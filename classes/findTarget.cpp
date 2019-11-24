@@ -94,12 +94,12 @@ void FindTarget::visualize(bool spinFlag)
     // Show alignment
     pcl::visualization::PCLVisualizer visu("Alignment");
     visu.setBackgroundColor(1.0, 1.0, 1.0);
-    visu.addPointCloud(scene, ColorHandlerT(scene, 0.0, 255.0, 0.0), "scene");
+    visu.addPointCloud(scene, ColorHandlerT(scene, 0.0, 178.0, 0.0), "scene");
     visu.addPointCloud(object_aligned, ColorHandlerT(object_aligned, 0.0, 0.0, 255.0), "object_aligned");
 
     pcl::visualization::PCLVisualizer visICP("ICP");
     visICP.setBackgroundColor(1.0, 1.0, 1.0);
-    visICP.addPointCloud(scene, ColorHandlerT(scene, 0.0, 255.0, 0.0), "scene");
+    visICP.addPointCloud(scene, ColorHandlerT(scene, 0.0, 178.0, 0.0), "scene");
     visICP.addPointCloud(object_icp, ColorHandlerT(object_icp, 0.0, 0.0, 255.0), "object_icp");
 
     pcl::visualization::PCLVisualizer visFinal("Comparison ICP-Alignment");

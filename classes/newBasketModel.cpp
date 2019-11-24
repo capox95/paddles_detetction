@@ -1,22 +1,25 @@
 #include "../include/newBasketModel.h"
 
-void BasketModel2::setBasketCenter(Eigen::Vector3f basketCenter) { _basketCenter = basketCenter; };
-void BasketModel2::setBasketAxis(Eigen::Vector3f basketAxisDir) { _basketAxisVector = basketAxisDir; };
+void DrumModel::setBasketCenter(Eigen::Vector3f basketCenter) { _basketCenter = basketCenter; };
+void DrumModel::setBasketAxis(Eigen::Vector3f basketAxisDir) { _basketAxisVector = basketAxisDir; };
 
-Eigen::Affine3d BasketModel2::getBigMatrix() { return _tBig; }
-Eigen::Affine3d BasketModel2::getSmallgMatrix0() { return _tSmall0; }
-Eigen::Affine3d BasketModel2::getSmallgMatrix1() { return _tSmall1; }
-Eigen::Affine3d BasketModel2::getSmallgMatrix2() { return _tSmall2; }
+Eigen::Affine3d DrumModel::getBigMatrix() { return _tBig; }
+Eigen::Affine3d DrumModel::getSmallgMatrix0() { return _tSmall0; }
+Eigen::Affine3d DrumModel::getSmallgMatrix1() { return _tSmall1; }
+Eigen::Affine3d DrumModel::getSmallgMatrix2() { return _tSmall2; }
 
-void BasketModel2::visualizeBasketModel(pcl::PointCloud<pcl::PointNormal>::Ptr &source,
-                                        bool planes_flag, bool cylinder_flag, bool lines_flag)
+float DrumModel::getFinLength() { return _finLength; }
+float DrumModel::getFinHeight() { return _finHeight; } // actually is half the height
+
+void DrumModel::visualizeBasketModel(pcl::PointCloud<pcl::PointNormal>::Ptr &source,
+                                     bool planes_flag, bool cylinder_flag, bool lines_flag)
 {
     // Visualization
     pcl::visualization::PCLVisualizer vizS("PCL");
     vizS.addCoordinateSystem(0.1, "coordinate");
     vizS.setBackgroundColor(1.0, 1.0, 1.0);
     vizS.addPointCloud<pcl::PointNormal>(source, "source");
-    vizS.setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_COLOR, 0.0, 1.0, 0.0, "source");
+    vizS.setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_COLOR, 0.0, 0.7, 0.0, "source");
 
     if (planes_flag)
     {
@@ -47,7 +50,7 @@ void BasketModel2::visualizeBasketModel(pcl::PointCloud<pcl::PointNormal>::Ptr &
     vizS.spin();
 }
 
-void BasketModel2::compute(pcl::PointCloud<pcl::PointNormal>::Ptr &input)
+void DrumModel::compute(pcl::PointCloud<pcl::PointNormal>::Ptr &input)
 {
     findPlanes(input, _planes);
     estimateIntersactionLine(_planes, _line);
@@ -74,7 +77,7 @@ void BasketModel2::compute(pcl::PointCloud<pcl::PointNormal>::Ptr &input)
 // estimate the planes for the two surfaces of the fin model.
 // The intersection of the two planes will give us the line of the top part of the fin.
 // planes is a vector of 2 elements
-void BasketModel2::findPlanes(pcl::PointCloud<pcl::PointNormal>::Ptr &cloud_plane, std::vector<pcl::ModelCoefficients> &planes)
+void DrumModel::findPlanes(pcl::PointCloud<pcl::PointNormal>::Ptr &cloud_plane, std::vector<pcl::ModelCoefficients> &planes)
 {
     pcl::PointCloud<pcl::PointNormal>::Ptr cloud_copy(new pcl::PointCloud<pcl::PointNormal>);
     pcl::copyPointCloud(*cloud_plane, *cloud_copy);
@@ -111,7 +114,7 @@ void BasketModel2::findPlanes(pcl::PointCloud<pcl::PointNormal>::Ptr &cloud_plan
 }
 
 // estimate the intersaction line resulting from the two planes.
-void BasketModel2::estimateIntersactionLine(std::vector<pcl::ModelCoefficients> &planes, pcl::ModelCoefficients &line_model)
+void DrumModel::estimateIntersactionLine(std::vector<pcl::ModelCoefficients> &planes, pcl::ModelCoefficients &line_model)
 {
     Eigen::Vector4f plane_a(planes[0].values.data());
     Eigen::Vector4f plane_b(planes[1].values.data());
@@ -133,8 +136,8 @@ void BasketModel2::estimateIntersactionLine(std::vector<pcl::ModelCoefficients> 
     line_model.values = values;
 }
 
-void BasketModel2::getPointsOnLine(pcl::PointCloud<pcl::PointNormal>::Ptr &cloud, pcl::ModelCoefficients &line,
-                                   pcl::PointXYZ &maxFinPoint, pcl::PointXYZ &minFinPoint, pcl::PointXYZ &centerFinPoint)
+void DrumModel::getPointsOnLine(pcl::PointCloud<pcl::PointNormal>::Ptr &cloud, pcl::ModelCoefficients &line,
+                                pcl::PointXYZ &maxFinPoint, pcl::PointXYZ &minFinPoint, pcl::PointXYZ &centerFinPoint)
 {
     pcl::PointXYZ line_point;
     line_point.x = line.values[0];
@@ -194,7 +197,7 @@ void BasketModel2::getPointsOnLine(pcl::PointCloud<pcl::PointNormal>::Ptr &cloud
 }
 
 //to determine if two lines are parallel in 3D
-void BasketModel2::checkIfParallel(pcl::ModelCoefficients &line, pcl::ModelCoefficients &axisBasket)
+void DrumModel::checkIfParallel(pcl::ModelCoefficients &line, pcl::ModelCoefficients &axisBasket)
 {
     // normalizing the vectors to unit length and computing the norm of the cross-product,
     // which is the sine of the angle between them.
@@ -217,14 +220,14 @@ void BasketModel2::checkIfParallel(pcl::ModelCoefficients &line, pcl::ModelCoeff
         PCL_WARN("Axes are not parallel");
 }
 
-void BasketModel2::buildLineModelCoefficient(Eigen::Vector3f &point, Eigen::Vector3f &axis,
-                                             pcl::ModelCoefficients &_lineBasket)
+void DrumModel::buildLineModelCoefficient(Eigen::Vector3f &point, Eigen::Vector3f &axis,
+                                          pcl::ModelCoefficients &_lineBasket)
 {
     std::vector<float> values{point.x(), point.y(), point.z(), axis.x(), axis.y(), axis.z()};
     _lineBasket.values = values;
 }
 
-pcl::ModelCoefficients BasketModel2::buildModelCoefficientCylinder(pcl::PointXYZ pointFIn, pcl::PointXYZ pointFinProj, Eigen::Vector3f axis)
+pcl::ModelCoefficients DrumModel::buildModelCoefficientCylinder(pcl::PointXYZ pointFIn, pcl::PointXYZ pointFinProj, Eigen::Vector3f axis)
 {
     float distance = pcl::euclideanDistance(pointFIn, pointFinProj);
 
@@ -234,7 +237,7 @@ pcl::ModelCoefficients BasketModel2::buildModelCoefficientCylinder(pcl::PointXYZ
     return model;
 }
 
-pcl::PointXYZ BasketModel2::projection(pcl::PointXYZ &point, pcl::ModelCoefficients &line)
+pcl::PointXYZ DrumModel::projection(pcl::PointXYZ &point, pcl::ModelCoefficients &line)
 {
     pcl::PointXYZ linePoint;
     linePoint.x = line.values[0];
@@ -256,8 +259,8 @@ pcl::PointXYZ BasketModel2::projection(pcl::PointXYZ &point, pcl::ModelCoefficie
     return projectedPoint;
 }
 
-void BasketModel2::calculateNewPoints(pcl::ModelCoefficients &cylinder, pcl::PointXYZ &centerCylinder,
-                                      pcl::PointXYZ &centerFin1, pcl::PointXYZ &centerFin2, pcl::PointXYZ &centerFin3)
+void DrumModel::calculateNewPoints(pcl::ModelCoefficients &cylinder, pcl::PointXYZ &centerCylinder,
+                                   pcl::PointXYZ &centerFin1, pcl::PointXYZ &centerFin2, pcl::PointXYZ &centerFin3)
 {
     std::vector<pcl::PointXYZ> newPoints;
     pcl::PointXYZ new_point;
@@ -294,7 +297,7 @@ void BasketModel2::calculateNewPoints(pcl::ModelCoefficients &cylinder, pcl::Poi
     centerFin3 = newPoints[1];
 }
 
-std::vector<pcl::PointXYZ> BasketModel2::movePointsToFinsCenter(std::vector<pcl::PointXYZ> &points, pcl::PointXYZ &center, float distance)
+std::vector<pcl::PointXYZ> DrumModel::movePointsToFinsCenter(std::vector<pcl::PointXYZ> &points, pcl::PointXYZ &center, float distance)
 {
     std::vector<pcl::PointXYZ> result;
     for (int i = 0; i < points.size(); i++)
@@ -312,7 +315,7 @@ std::vector<pcl::PointXYZ> BasketModel2::movePointsToFinsCenter(std::vector<pcl:
     return result;
 }
 
-float BasketModel2::calculateFinHeight(pcl::PointCloud<pcl::PointNormal>::Ptr &input, pcl::ModelCoefficients &line)
+float DrumModel::calculateFinHeight(pcl::PointCloud<pcl::PointNormal>::Ptr &input, pcl::ModelCoefficients &line)
 {
     std::vector<float> distances;
     float tmp;
@@ -333,7 +336,7 @@ float BasketModel2::calculateFinHeight(pcl::PointCloud<pcl::PointNormal>::Ptr &i
     pcl::console::print_highlight("Fin estimated height: %f meters\n", _finHeight * 2);
 }
 
-void BasketModel2::computeTransformation()
+void DrumModel::computeTransformation()
 {
     Eigen::Vector3f axis2 = _centerFinPoint.getVector3fMap() - _centerFinProjected.getVector3fMap();
     axis2.normalize();

@@ -13,7 +13,7 @@
 #include <pcl/filters/extract_indices.h>
 #include <pcl/visualization/pcl_visualizer.h>
 
-class BasketModel2
+class DrumModel
 {
 public:
     Eigen::Vector3f _basketCenter;
@@ -38,6 +38,9 @@ public:
     Eigen::Affine3d getSmallgMatrix0();
     Eigen::Affine3d getSmallgMatrix1();
     Eigen::Affine3d getSmallgMatrix2();
+
+    float getFinLength();
+    float getFinHeight();
 
     void visualizeBasketModel(pcl::PointCloud<pcl::PointNormal>::Ptr &source,
                               bool planes_flag, bool cylinder_flag, bool lines_flag);

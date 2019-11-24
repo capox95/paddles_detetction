@@ -45,6 +45,8 @@ int main(int argc, char **argv)
     basketAxisDir.y() = 0.631626;
     basketAxisDir.z() = -0.621389;
 
+    auto start = std::chrono::steady_clock::now();
+
     FindTarget ft;
     ft.object = object;
     ft.scene = scene;
@@ -53,15 +55,20 @@ int main(int argc, char **argv)
         return -1;
     ft.visualize(false);
 
-    BasketModel2 bm;
-    bm.setBasketCenter(basketCenter);
-    bm.setBasketAxis(basketAxisDir);
-    bm.compute(ft.object_icp);
+    DrumModel dm;
+    dm.setBasketCenter(basketCenter);
+    dm.setBasketAxis(basketAxisDir);
+    dm.compute(ft.object_icp);
 
-    Eigen::Affine3d tBig = bm.getBigMatrix();
-    Eigen::Affine3d tS0 = bm.getSmallgMatrix0();
-    Eigen::Affine3d tS1 = bm.getSmallgMatrix1();
-    Eigen::Affine3d tS2 = bm.getSmallgMatrix2();
+    //time computation
+    auto end = std::chrono::steady_clock::now();
+    auto diff = end - start;
+    std::cout << "duration entropy filter: " << std::chrono::duration<double, std::milli>(diff).count() << " ms" << std::endl;
+
+    Eigen::Affine3d tBig = dm.getBigMatrix();
+    Eigen::Affine3d tS0 = dm.getSmallgMatrix0();
+    Eigen::Affine3d tS1 = dm.getSmallgMatrix1();
+    Eigen::Affine3d tS2 = dm.getSmallgMatrix2();
 
     std::cout << "bigMatrix: \n"
               << tBig.matrix() << "\n"
@@ -76,7 +83,7 @@ int main(int argc, char **argv)
               << tS2.matrix() << "\n"
               << std::endl;
 
-    bm.visualizeBasketModel(scene, false, true, true);
+    dm.visualizeBasketModel(scene, false, false, true);
 
     return (0);
 }

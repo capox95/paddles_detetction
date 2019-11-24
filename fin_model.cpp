@@ -285,14 +285,10 @@ int main(int argc, char **argv)
     viz.addPointCloud<pcl::PointXYZ>(cloud_filtered, "cloud_filtered");
     viz.setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_COLOR, 1.0f, 0.0f, 0.0f, "cloud_filtered");
 
-    pcl::visualization::PCLVisualizer viz2("PCL Result");
-    viz2.setBackgroundColor(0.0, 0.0, 0.5);
-    viz2.addPointCloud<pcl::PointXYZ>(result, "result");
-
     pcl::visualization::PCLVisualizer vizS("PCL Result");
-    vizS.setBackgroundColor(0.0, 0.0, 0.5);
+    vizS.setBackgroundColor(1.0, 1.0, 1.0);
     vizS.addPointCloud<pcl::PointNormal>(cloud_normals, "cloud_normals");
-    vizS.setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_COLOR, 0.0f, 1.0f, 0.0f, "cloud_normals");
+    vizS.setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_COLOR, 0.0f, 0.0f, 1.0f, "cloud_normals");
     //vizS.addPointCloudNormals<pcl::PointNormal>(cloud_normals, 1, 0.01, "normals");
 
     viz.spin();

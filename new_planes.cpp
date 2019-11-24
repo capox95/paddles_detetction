@@ -38,7 +38,7 @@ int main(int argc, char **argv)
     basketAxisDir.y() = -0.686225;
     basketAxisDir.z() = -0.559771;
 
-    BasketModel2 bm;
+    DrumModel bm;
     bm.setBasketCenter(basketCenter);
     bm.setBasketAxis(basketAxisDir);
     bm.compute(source);
